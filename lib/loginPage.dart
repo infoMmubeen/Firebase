@@ -26,6 +26,8 @@ class _LoginpageState extends State<Loginpage> {
             .signInWithEmailAndPassword(email: email, password: password)
             .then((Value) {
           Get.to((HomePage()));
+          print(
+              "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa $userCredential");
         });
       } on FirebaseAuthException catch (ex) {
         return Get.snackbar('error', "${ex.toString()}");
@@ -77,7 +79,7 @@ class _LoginpageState extends State<Loginpage> {
                 Login(emailInsideButton, passwordInsideButton);
                 // You can add validation or authentication logic here
                 print(
-                    "Email: $emailInsideButton, Password: $passwordInsideButton");
+                    "Emailsssss: $emailInsideButton, Password: $passwordInsideButton");
               },
               child: const Text("Login"),
             ),

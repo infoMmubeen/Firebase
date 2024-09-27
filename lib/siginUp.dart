@@ -20,14 +20,22 @@ class _SiginupState extends State<Siginup> {
     } else {
       UserCredential? userCredential;
       try {
+        print("Before assignment: ${userCredential.toString()}");
         userCredential = await FirebaseAuth.instance
-            .createUserWithEmailAndPassword(email: email, password: password)
-            .then((value) {
-          Get.snackbar('Well Come', 'well come now login your accoutn');
-          Get.to(Loginpage());
-        });
-      } on FirebaseAuthException catch (ex) {
-        return Get.snackbar('error', "${ex.toString()}");
+            .createUserWithEmailAndPassword(email: email, password: password);
+
+        // Once the user is successfully created, show a message
+        Get.snackbar('Welcome', 'Account created successfully. Please log in.');
+
+        // Navigate to the login page
+        Get.to(Loginpage());
+
+        // Print the UserCredential for debugging purposes
+        print('User Credential: $userCredential');
+      } catch (e) {
+        // Handle errors, such as when the email is already in use
+        print('Error: $e');
+        Get.snackbar('Error', e.toString());
       }
     }
   }
