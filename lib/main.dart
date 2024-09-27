@@ -1,10 +1,9 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:new_after_slow_fire/siginUp.dart';
 import 'package:get/get.dart';
 
-import 'loginPage.dart';
+import 'checkUser.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -32,7 +31,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      home: const Loginpage(),
+      home: const Checkuser(),
     );
   }
 }
