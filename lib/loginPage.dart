@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import 'forgetPassw.dart';
 import 'home.dart';
 import 'siginUp.dart';
 
@@ -91,7 +92,15 @@ class _LoginpageState extends State<Loginpage> {
                 onPressed: () {
                   Get.to(Siginup());
                 },
-                child: Text('click here '))
+                child: Text('click here ')),
+            SizedBox(
+              height: 10,
+            ),
+            ElevatedButton(
+                onPressed: () {
+                  Get.to(Forgetpassw());
+                },
+                child: Text('Forget Password '))
           ],
         ),
       ),
