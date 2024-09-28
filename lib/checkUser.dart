@@ -14,6 +14,7 @@ class Checkuser extends StatefulWidget {
 class _CheckuserState extends State<Checkuser> {
   checkuser() {
     final user = FirebaseAuth.instance.currentUser;
+    print(user);
     if (user != null) {
       return HomePage(); // Navigate to HomePage if user is logged in
     } else {
@@ -24,26 +25,5 @@ class _CheckuserState extends State<Checkuser> {
   @override
   Widget build(BuildContext context) {
     return checkuser();
-    // return FutureBuilder<Widget>(
-    //   future: checkuser(),
-    //   builder: (BuildContext context, AsyncSnapshot<Widget> snapshot) {
-    //     // Checking if the future has data
-    //     if (snapshot.connectionState == ConnectionState.waiting) {
-    //       // Show a loading spinner while waiting
-    //       return const Scaffold(
-    //         body: Center(
-    //           child: CircularProgressIndicator(),
-    //         ),
-    //       );
-    //     } else if (snapshot.hasData) {
-    //       // Show the determined page when the future is done
-    //       return snapshot.data!;
-    //     } else {
-    //       // Handle errors or unexpected nulls
-    //       return Scaffold(
-    //         body: Center(
-    //           child: Text('Error checking user status'),
-    //         ),
-    //       );
   }
 }
