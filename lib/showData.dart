@@ -20,11 +20,20 @@ class _ShowdataState extends State<Showdata> {
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.active) {
             if (snapshot.hasData) {
-              print("Data retrieved: ${snapshot.data!.docs.length}");
+              // print("Data retrieved: ${snapshot.data!.docs.length}");
               return ListView.builder(
                 itemCount: snapshot.data!.docs.length,
                 itemBuilder: (context, index) {
                   var doc = snapshot.data!.docs[index];
+                  var length = snapshot.data!.docs.length;
+                  print("Data retrieved: ${snapshot.data!.docs.length}");
+
+                  // Print all document data
+                  for (var valuesofData in snapshot.data!.docs) {
+                    print("Document data with lop: ${valuesofData.data()}");
+                  }
+                  print("folder inside the data ${snapshot.data!.docs}");
+                  print("Length of the data   ${snapshot.data!.docs.length}");
                   print("Document data: ${doc.data()}"); // Debugging line
                   return ListTile(
                     leading: CircleAvatar(
